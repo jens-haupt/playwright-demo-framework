@@ -1,16 +1,10 @@
-import { test } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
+import { test } from '../fixtures/auth.fixture';
 import { InventoryPage } from '../pages/InventoryPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
-import { users } from '../data/users';
 
-test('complete checkout flow', async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    const inventoryPage = new InventoryPage(page);
-    const checkoutPage = new CheckoutPage(page);
-
-    await loginPage.goto();
-    await loginPage.login(users.standard.username, users.standard.password);
+test('complete checkout flow', async ({ authenticatedPage }) => {
+    const inventoryPage = new InventoryPage(authenticatedPage);
+    const checkoutPage = new CheckoutPage(authenticatedPage);
 
     await inventoryPage.expectInventoryPageIsVisible();
     await inventoryPage.addBackpackToCart();
