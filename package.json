@@ -1,0 +1,23 @@
+{
+  "name": "playwright-demo-framework",
+  "version": "1.0.0",
+  "description": "Modern Playwright test automation framework with CI/CD integration and scalable QA structure.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jens-haupt/playwright-demo-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jens-haupt/playwright-demo-framework/issues"
+  },
+  "homepage": "https://github.com/jens-haupt/playwright-demo-framework#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.0"
+  }
+}
