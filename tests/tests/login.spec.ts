@@ -1,15 +1,18 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
+import { LoginPage } from '../../pages/LoginPage';
 
 test('successful login', async ({ page }) => {
+    const loginPage = new LoginPage(page);
 
-    await page.goto('https://www.saucedemo.com');
+    await loginPage.goto();
+    await loginPage.login('standard_user', 'secret_sauce');
+    await loginPage.expectSuccessfulLogin();
+});
 
-    await page.locator('[data-test="username"]').fill('standard_user');
+test('failed login with invalid password', async ({ page }) => {
+    const loginPage = new LoginPage(page);
 
-    await page.locator('[data-test="password"]').fill('secret_sauce');
-
-    await page.locator('[data-test="login-button"]').click();
-
-    await expect(page).toHaveURL(/inventory/);
-
+    await loginPage.goto();
+    await loginPage.login('standard_user', 'wrong_password');
+    await loginPage.expectLoginError();
 });
