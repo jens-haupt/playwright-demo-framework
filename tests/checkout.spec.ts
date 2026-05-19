@@ -2,6 +2,7 @@ import { test } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
+import { users } from '../data/users';
 
 test('complete checkout flow', async ({ page }) => {
     const loginPage = new LoginPage(page);
@@ -9,7 +10,7 @@ test('complete checkout flow', async ({ page }) => {
     const checkoutPage = new CheckoutPage(page);
 
     await loginPage.goto();
-    await loginPage.login('standard_user', 'secret_sauce');
+    await loginPage.login(users.standard.username, users.standard.password);
 
     await inventoryPage.expectInventoryPageIsVisible();
     await inventoryPage.addBackpackToCart();
