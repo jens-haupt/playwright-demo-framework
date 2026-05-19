@@ -1,5 +1,5 @@
-import { test, expect } from '../../fixtures/auth.fixture';
-import { InventoryPage } from '../../pages/InventoryPage';
+import { test, expect } from '../fixtures/auth.fixture';
+import { InventoryPage } from '../pages/InventoryPage';
 
 test('add product to cart', async ({ authenticatedPage }) => {
     const inventoryPage = new InventoryPage(authenticatedPage);
