@@ -1,5 +1,7 @@
 # Playwright Demo Framework
 
+![Playwright Tests](https://github.com/DEIN_USERNAME/playwright-demo-framework/actions/workflows/playwright.yml/badge.svg)
+
 Modern Playwright automation framework showcasing scalable QA automation practices, maintainable test architecture and CI/CD integration.
 
 ---
